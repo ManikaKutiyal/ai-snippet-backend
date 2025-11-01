@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import snippetRoutes from './routes/snippetRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -35,7 +36,8 @@ connectDB();
 
 // --- API Routes ---
 // Any request to /api/snippets will be handled by our router
-app.use('/api/snippets', snippetRoutes); // <-- NEW: Use routes
+app.use('/api/snippets', snippetRoutes);
+app.use('/api/auth', authRoutes); 
 
 // --- Simple Test Route ---
 app.get('/api', (req, res) => {

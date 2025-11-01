@@ -1,6 +1,12 @@
 import mongoose from 'mongoose';
 
 const snippetSchema = new mongoose.Schema({
+  // This is the link to the User model
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
   title: {
     type: String,
     required: true,
